@@ -1,0 +1,13 @@
+public class pessoa
+{ 
+    public static void main(String[] args)  
+    {
+    
+    double peso, altura;
+    String corCabelo, corOlho, corPele;
+    
+    Scanner entrada=new Scanner(System.in);
+    
+    }
+    
+}
