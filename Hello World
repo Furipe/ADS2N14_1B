@@ -1,10 +1,22 @@
+import java.util.Scanner;
+
 public class hello 
 { 
 //Start
     public static void main(String[] args) 
     { 
-        System.out.println("Hello World"); 
+    //Start main
+    
+        String nome;
+        
+        Scanner entrada=new Scanner(System.in);
+        
+        //User
+        System.out.println("Digite seu primeiro nome: ");
+        nome=entrada.next();
+        //Impressão - User
+        System.out.println("Hello, "+username.); 
     } 
-  
+    //End main
 } 
 //End
