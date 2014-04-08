@@ -9,8 +9,6 @@ public class Controller
 	
 	Random gerador = new Random();
 
-	public ContaComum sistemabancario;
-
 	public int geradorConta() 
 	{
 		int numConta;

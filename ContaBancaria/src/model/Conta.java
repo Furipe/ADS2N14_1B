@@ -13,8 +13,8 @@ static final ContaComum conta = new ContaComum();
 	public static void menuConta()
 	{
 
-		double depositov = 00.00;
-		double saquev = 00.00;
+		double depositov = 0;
+		double saquev = 0;
 		
 		@SuppressWarnings("resource")
 		Scanner teclado = new Scanner (System.in);
@@ -69,7 +69,8 @@ static final ContaComum conta = new ContaComum();
 				}
 					else if (conta.getSaldo() < 0 || saquev > conta.getSaldo())
 					{
-						System.out.println("Saldo insuficiente. Seu saldo atual é de: "+ conta.getSaldo());
+						System.out.println("Sua tentativa de sacar "+saquev+" reais falhou, pois seu saldo é insuficiente."
+											+ "\nSeu saldo atual é de: "+ conta.getSaldo());
 					}
 					else if (saquev == 0)
 					{

@@ -4,7 +4,7 @@ public class ContaInvestimento extends ContaComum
 {
 
 	private int dataCriacao;
-	private double taxa = 0.05;
+	private double taxa = 0.085;
 	
 	public ContaInvestimento (double saldo, int numConta, int numVerificacao, double taxa, int dataCriacao){}
 

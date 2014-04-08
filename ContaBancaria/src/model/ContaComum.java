@@ -3,7 +3,7 @@ package model;
 
 public class ContaComum {
 
-	private double saldo = 00.00;
+	private double saldo = 0;
 	private int numConta;
 	private int numVerificacao;
 

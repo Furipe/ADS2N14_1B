@@ -5,23 +5,29 @@ import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Scanner;
 
-public class SDContaI {
+//Conta Investimento com adicional de 8.5% ao ano.
+
+public class SDContaI 
+{
+	
 	
 static final ContaInvestimento conta = new ContaInvestimento(0, 0, 0, 0, 0);
 	
 	public static void menuConta()
 	{
 
-		double depositov = 00.00;
-		double saquev = 00.00;
+		double depositov = 0;
+		double saquev = 0;
 		
 		@SuppressWarnings("resource")
 		Scanner teclado = new Scanner (System.in);
 		
-		Calendar c = Calendar.getInstance();
-		DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);
+		System.out.println("\n");
+		Calendar c = Calendar.getInstance();// Gerando calendário para datas.
+		DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM); //Formatando Datas.
+		
 		System.out.println("\nData Atual: " + df.format(c.getTime()));
-		System.out.println("Na nossa Conta Investimento você aumenta seu saldo em 0.5% ao ano!");
+		System.out.println("Na nossa Conta Investimento você aumenta seu saldo em 8.5% ao ano!");
 		
 		System.out.println("Escolha uma das opções: \n"
 							+ "1 - Depositar.\n"
@@ -74,7 +80,8 @@ static final ContaInvestimento conta = new ContaInvestimento(0, 0, 0, 0, 0);
 				}
 					else if (conta.getSaldo() < 0 || saquev > conta.getSaldo())
 					{
-						System.out.println("Saldo insuficiente. Seu saldo atual é de: "+ conta.getSaldo());
+						System.out.println("Sua tentativa de sacar " + saquev + " reais falhou, pois seu saldo é insuficiente.\n"
+											+ "Seu saldo atual é de: "+ conta.getSaldo());
 					}
 					else if (saquev == 0)
 					{
@@ -98,16 +105,24 @@ static final ContaInvestimento conta = new ContaInvestimento(0, 0, 0, 0, 0);
 									+ "\nPara quantos anos você deseja calcular seu investimento, após a data atual: " + df.format(c.getTime()) + "?");
 				int dataP = teclado.nextInt();
 				
+				
 				if (dataP > 0)
 				{
-				c.add(Calendar.YEAR,dataP );
-				DateFormat df2 = DateFormat.getDateInstance(DateFormat.MEDIUM);
-				System.out.println("Você pediu o cálculo de seu investimento para a data: " + df2.format(c.getTime()));
-				double taxaAno = conta.getTaxa();
-				double saldoAno = conta.getSaldo();
-				double invest = ((dataP*taxaAno)*saldoAno)+saldoAno;
-				System.out.println("Na data: " + df2.format(c.getTime()) +
-									"\nSeu saldo será de: " + invest + "reais." );
+						// Adicionando Anos à data atual.
+						c.add(Calendar.YEAR,dataP );
+						DateFormat df2 = DateFormat.getDateInstance(DateFormat.MEDIUM);
+						System.out.println("Você pediu o cálculo de seu investimento para a data: " + df2.format(c.getTime()));
+						double taxaAno = conta.getTaxa();
+						double saldoAno = conta.getSaldo();
+						double invest = 0;
+						for (int i = 0;i < dataP; i++)
+						{
+							invest = ((taxaAno*saldoAno)+ saldoAno);
+							saldoAno = invest;
+						}
+						// Imprimindo resultado do investimento após x anos e mostrando a Data "Final" para este teste de Investimento.
+						System.out.printf("\nNa data: " + df2.format(c.getTime())
+								+ "\nSeu saldo será de: R$ %.2f", saldoAno);
 				}
 				
 				else 
