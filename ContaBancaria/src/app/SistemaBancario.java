@@ -1,6 +1,6 @@
 package app;
 
-import model.Conta;
+import view.Conta;
 import view.SistemaBancarioView;
 
 public class SistemaBancario {

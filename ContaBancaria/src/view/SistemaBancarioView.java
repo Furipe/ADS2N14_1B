@@ -4,10 +4,8 @@ import java.util.Scanner;
 
 import controller.ClienteController;
 import controller.Controller;
-import model.Conta;
 import model.ContaComum;
-import model.SDContaE;
-import model.SDContaI;
+import model.ContaEspecial;
 
 public class SistemaBancarioView 
 {
@@ -28,16 +26,17 @@ public class SistemaBancarioView
 							+"\nEndereço: "+clientev.geradorEndereco());
 		
 		Controller sistemabancario = new Controller();
-		System.out.println("Conta: " + sistemabancario.geradorConta());
-		System.out.println("Verificação: " + sistemabancario.geradorVerificacao());
+		System.out.println("Conta: " + sistemabancario.geradorConta()
+							+"Verificação: " + sistemabancario.geradorVerificacao());
 		
+		ContaEspecial contae = new ContaEspecial(0, 0, 0, 0);
 
-		System.out.println("\nBem vindo ao Sistema Bancário.\n"
-				+ "Qual o tipo de conta que gostaria de criar:\n"
-				+ "1 - Conta Comum\n"
-				+ "2 - Conta Especial\n"
-				+ "3 - Conta Investimento\n"
-				+ "0 - Sair do programa.");
+		System.out.println("\nBem vindo ao Sistema do Banco Phantom Negócios.\n"
+							+ "Qual o tipo de conta que gostaria de criar:\n"
+							+ "1 - Conta Comum\n"
+							+ "2 - Conta Especial\n"
+							+ "3 - Conta Investimento\n"
+							+ "0 - Sair do programa.");
 
 		int opTipo = teclado.nextInt();
 			
@@ -52,8 +51,8 @@ public class SistemaBancarioView
 		
 			case 1: 
 		{
-				System.out.println("Tipo de conta escolhida: Conta Comum.\n");
-				System.out.println("Saldo atual: " + sistemabancario.geradorSaldo());
+				System.out.println("Tipo de conta escolhida: Conta Comum.\n"
+									+ "Saldo atual: " + sistemabancario.geradorSaldo());
 				
 				new ContaComum();
 				
@@ -63,8 +62,10 @@ public class SistemaBancarioView
 		}
 			case 2: 
 		{
-				System.out.println("Tipo de conta escolhida: Conta Especial.\n");
-				System.out.println("Saldo atual: " + sistemabancario.geradorSaldo());
+				System.out.println("Tipo de conta escolhida: Conta Especial.\n"
+									+ "Nossa conta Especial conta com um limite de até 1000 reais."
+									+ "Saldo atual: " + sistemabancario.geradorSaldo()
+									+ "Limite atual: "+ contae.getLimite() );
 				
 				SDContaE.menuConta();
 				break;
@@ -72,8 +73,8 @@ public class SistemaBancarioView
 		}
 			case 3: 
 		{
-				System.out.println("Tipo de conta escolhida: Conta Investimento.\n");
-				System.out.println("Saldo atual: " + sistemabancario.geradorSaldo());
+				System.out.println("Tipo de conta escolhida: Conta Investimento.\n"
+									+ "Saldo atual: " + sistemabancario.geradorSaldo());
 				
 				SDContaI.menuConta();
 				break;
