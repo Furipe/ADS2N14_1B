@@ -15,7 +15,7 @@ public class hello
         System.out.println("Digite seu primeiro nome: ");
         nome=entrada.next();
         //Impressão - User
-        System.out.println("Hello, "+username.); 
+        System.out.println("Hello, "+username+"."); 
     } 
     //End main
 } 
